@@ -25,10 +25,6 @@ It’s designed for **AI/ML engineers** who prefer to run workloads locally — 
 - [Overview](#overview)
 - [Philosophy](#philosophy)
 - [Benchmark Results](#benchmark-results)
-  - [Power metrics](#⚡-power-metrics)
-  - [Embeddings](#embeddings)
-  - [LLMs](#llms)
-  - [VLMs](#vlms)
 - [Quick Start](#-quick-start)
 - [Contributing](#-contributing)
 
