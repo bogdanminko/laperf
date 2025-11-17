@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NOBS (Neural NetwOrks Benchmark Stash) is an open-source benchmark suite for evaluating real AI hardware performance on practical workloads. The project focuses on reproducible, honest benchmarks across different hardware (M4 Max, RTX 4060, A100, etc.) for:
+La Perf is an open-source benchmark suite for evaluating real AI hardware performance on practical workloads. The project focuses on reproducible, honest benchmarks across different hardware (M4 Max, RTX 4060, A100, etc.) for:
 
 - **Text Embeddings** (sentence-transformers) - IMPLEMENTED
 - **LLM Inference** (via LM Studio) - IMPLEMENTED

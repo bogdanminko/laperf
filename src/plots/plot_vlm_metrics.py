@@ -27,9 +27,8 @@ def plot_vlm_performance(
     """
     Generate two scientific performance profile plots for VLM metrics.
 
-    Plot 1: E2E Latency P50 - lower is better (full request to response time)
-    Plot 2: Tokens Per Second (TPS) - higher is better
-    Both sorted by overall performance (TPS)
+    Plot 1: E2E Latency P50 - lower is better (sorted by latency ascending)
+    Plot 2: Tokens Per Second (TPS) - higher is better (sorted by TPS descending)
     """
     results = load_results(results_dir)
 
@@ -75,26 +74,36 @@ def plot_vlm_performance(
         print(f"No VLM results found to plot{scope}")
         return
 
-    # Sort by TPS (descending - higher is better)
-    devices_sorted = sorted(devices, key=lambda x: x["tps"], reverse=True)
+    # Sort by TPS for TPS plot (descending - higher is better)
+    devices_sorted_tps = sorted(devices, key=lambda x: x["tps"], reverse=True)
 
-    # Create labels: "gpu_name\n[BACKEND]" format
-    y_labels = [f"{d['gpu_name']}\n[{d['backend']}]" for d in devices_sorted]
-    latency_values = [d["latency"] for d in devices_sorted]
-    latency_std_values = [d["latency_std"] for d in devices_sorted]
-    tps_values = [d["tps"] for d in devices_sorted]
-    tps_std_values = [d["tps_std"] for d in devices_sorted]
+    # Sort by latency for latency plot (ascending - lower is better)
+    devices_sorted_latency = sorted(devices, key=lambda x: x["latency"], reverse=False)
 
-    # Get colors for each GPU
-    colors = [get_gpu_vendor_color(d["gpu_name"]) for d in devices_sorted]
+    # Create labels and values for latency plot
+    y_labels_latency = [
+        f"{d['gpu_name']}\n[{d['backend']}]" for d in devices_sorted_latency
+    ]
+    latency_values = [d["latency"] for d in devices_sorted_latency]
+    latency_std_values = [d["latency_std"] for d in devices_sorted_latency]
+    colors_latency = [
+        get_gpu_vendor_color(d["gpu_name"]) for d in devices_sorted_latency
+    ]
+
+    # Create labels and values for TPS plot
+    y_labels_tps = [f"{d['gpu_name']}\n[{d['backend']}]" for d in devices_sorted_tps]
+    tps_values = [d["tps"] for d in devices_sorted_tps]
+    tps_std_values = [d["tps_std"] for d in devices_sorted_tps]
+    colors_tps = [get_gpu_vendor_color(d["gpu_name"]) for d in devices_sorted_tps]
 
     # Create figure with scientific style
     plt.style.use("seaborn-v0_8-paper")
 
     # Y positions and dynamic height
-    n_devices = len(y_labels)
+    n_devices = len(y_labels_latency)
     fig_height = max(6, n_devices * 0.6)
-    y_pos = np.arange(len(y_labels))
+    y_pos_latency = np.arange(len(y_labels_latency))
+    y_pos_tps = np.arange(len(y_labels_tps))
     backend_label = f" ({backend_filter.replace('_', ' ')})" if backend_filter else ""
 
     # ===== PLOT 1: E2E Latency P50 (lower is better) =====
@@ -102,11 +111,11 @@ def plot_vlm_performance(
 
     # Plot horizontal bars with error bars
     bars1 = ax1.barh(
-        y_pos,
+        y_pos_latency,
         latency_values,
         xerr=latency_std_values,
         capsize=5,
-        color=colors,
+        color=colors_latency,
         alpha=0.8,
         edgecolor="black",
         linewidth=0.5,
@@ -121,8 +130,8 @@ def plot_vlm_performance(
         fontweight="bold",
         pad=20,
     )
-    ax1.set_yticks(y_pos)
-    ax1.set_yticklabels(y_labels, fontsize=10)
+    ax1.set_yticks(y_pos_latency)
+    ax1.set_yticklabels(y_labels_latency, fontsize=10)
     ax1.invert_yaxis()  # Best performer at top
     ax1.grid(True, alpha=0.3, linestyle="--", linewidth=0.5, axis="x")
     ax1.set_axisbelow(True)
@@ -160,11 +169,11 @@ def plot_vlm_performance(
 
     # Plot horizontal bars with error bars
     bars2 = ax2.barh(
-        y_pos,
+        y_pos_tps,
         tps_values,
         xerr=tps_std_values,
         capsize=5,
-        color=colors,
+        color=colors_tps,
         alpha=0.8,
         edgecolor="black",
         linewidth=0.5,
@@ -179,8 +188,8 @@ def plot_vlm_performance(
         fontweight="bold",
         pad=20,
     )
-    ax2.set_yticks(y_pos)
-    ax2.set_yticklabels(y_labels, fontsize=10)
+    ax2.set_yticks(y_pos_tps)
+    ax2.set_yticklabels(y_labels_tps, fontsize=10)
     ax2.invert_yaxis()  # Best performer at top
     ax2.grid(True, alpha=0.3, linestyle="--", linewidth=0.5, axis="x")
     ax2.set_axisbelow(True)

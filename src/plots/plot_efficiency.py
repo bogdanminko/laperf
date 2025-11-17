@@ -164,7 +164,7 @@ def plot_efficiency_comparison(
         ax1.set_yticks(range(len(devices)))
         ax1.set_yticklabels(devices, fontsize=10)
         ax1.set_xlabel(
-            "Efficiency (RPS P50 / GPU W P50)", fontsize=11, fontweight="bold"
+            "Efficiency (RPS mean / GPU W P50)", fontsize=11, fontweight="bold"
         )
         ax1.set_title(
             "Embeddings Efficiency: Performance per Watt (Higher is Better)",
