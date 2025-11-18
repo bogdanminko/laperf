@@ -1,0 +1,65 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# CI/CD
+.github/
+
+# Documentation
+docs/
+site/
+
+# Results (to avoid copying large result files)
+results/
+*.json
+
+# Ruff cache
+.ruff_cache/
+
+# Pre-commit
+.pre-commit-config.yaml
+
+# Environment files (may contain secrets)
+.env
+.env.local
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

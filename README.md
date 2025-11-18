@@ -156,7 +156,43 @@ This will:
    (all are pre-selected — you can toggle individual ones in the TUI using `Space`)
 3. **Save** the results to `results/report_{your_device}.json`
 
+---
 
+## Running on GPU Servers (Docker)
+
+For production deployments on cloud GPU instances or dedicated servers, you can use our Docker image:
+
+### Pull the image
+
+```bash
+docker pull bogdan01m/laperf-cli:latest
+```
+
+### Run with NVIDIA GPU
+
+```bash
+docker run --gpus all -it --rm \
+  -v $(pwd)/results:/app/results \
+  bogdan01m/laperf-cli:latest
+```
+
+### Run with AMD ROCm
+
+```bash
+docker run --device=/dev/kfd --device=/dev/dri -it --rm \
+  -v $(pwd)/results:/app/results \
+  bogdan01m/laperf-cli:latest
+```
+
+### Run CPU-only
+
+```bash
+docker run -it --rm \
+  -v $(pwd)/results:/app/results \
+  bogdan01m/laperf-cli:latest
+```
+
+**Note:** Results will be saved to the mounted `./results` directory on your host machine.
 
 ---
 
