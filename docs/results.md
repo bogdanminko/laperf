@@ -29,18 +29,18 @@ The `MLX` backend makes the benchmark harder to maintain, but it provides a more
 
 ## Benchmark Results
 
-> **Last Updated**: 2025-11-14
+> **Last Updated**: 2025-11-19
 
-| Device | Platform | GPU | VRAM | Emb RPS P50 | LLM TPS P50 (lms) | LLM TPS P50 (ollama) | VLM TPS P50 (lms) | VLM TPS P50 (ollama) | GPU Power P50 | CPU Power P50 | Emb Efficiency (RPS/W) | LLM Efficiency (TPS/W) lms | LLM Efficiency (TPS/W) ollama | VLM Efficiency (TPS/W) lms | VLM Efficiency (TPS/W) ollama |
-|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
-| ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | 🐧 Linux | NVIDIA GeForce RTX 4060 Laptop GPU | 8 GB | 162.2 | 15.4 | 16.0 | 22.4 | 13.6 | 18.3 W | - | 8.88 | 0.84 | 0.88 | 1.23 | 0.74 |
-| Mac16,6 | 🍏 macOS | Apple M4 Max (32 cores) | shared with system RAM | 55.8 | 56.5 | 61.0 | 51.5 | 47.8 | 11.7 W | 1.1 W | 4.77 | 4.84 | 5.22 | 4.40 | 4.09 |
-| Mac16,6 (on battery) | 🍏 macOS | Apple M4 Max (32 cores) (on battery) | shared with system RAM | 53.9 | 55.3 | 62.2 | 49.0 | 46.5 | 11.3 W | 1.1 W | 4.79 | 4.91 | 5.52 | 4.35 | 4.13 |
-| OpenStack Nova 26.0.7-1 A100 40GB | 🐧 Linux | NVIDIA A100-PCIE-40GB | 39 GB | 453.6 | - | 113.5 | - | 108.0 | 218.2 W | - | 2.08 | - | 0.52 | - | 0.50 |
-| OpenStack Nova A100 80GB | 🐧 Linux | NVIDIA A100 80GB PCIe | 79 GB | 623.8 | - | 135.5 | - | 121.2 | 230.5 W | - | 2.71 | - | 0.59 | - | 0.53 |
-| OpenStack Nova RTX3090 | 🐧 Linux | NVIDIA GeForce RTX 3090 | 24 GB | 349.5 | - | 114.8 | - | 105.3 | 345.6 W | - | 1.01 | - | 0.33 | - | 0.30 |
-| OpenStack Nova RTX4090 | 🐧 Linux | NVIDIA GeForce RTX 4090 | 24 GB | 643.6 | - | 148.7 | - | 130.4 | 282.5 W | - | 2.28 | - | 0.53 | - | 0.46 |
-| OpenStack Nova Tesla T4 | 🐧 Linux | Tesla T4 | 15 GB | 133.7 | - | 41.5 | - | 32.6 | 68.9 W | - | 1.94 | - | 0.60 | - | 0.47 |
+| Device | Platform | CPU | GPU | VRAM | Emb RPS P50 | LLM TPS P50 (lms) | LLM TPS P50 (ollama) | VLM TPS P50 (lms) | VLM TPS P50 (ollama) | GPU Power P50 | CPU Power P50 | Emb Efficiency (RPS/W) | LLM Efficiency (TPS/W) lms | LLM Efficiency (TPS/W) ollama | VLM Efficiency (TPS/W) lms | VLM Efficiency (TPS/W) ollama |
+|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | 🐧 Linux | Intel(R) Core(TM) Ultra 9 185H (16) | NVIDIA GeForce RTX 4060 Laptop GPU | 8 GB | 162.2 | 15.4 | 16.0 | 22.4 | 13.6 | 18.3 W | - | 8.88 | 0.84 | 0.88 | 1.23 | 0.74 |
+| Mac16,6 | 🍏 macOS | Apple M4 Max (14) | Apple M4 Max (32 cores) | shared with system RAM | 56.2 | 61.5 | 61.4 | 55.4 | 45.7 | 11.7 W | 1.0 W | 4.79 | 5.24 | 5.24 | 4.72 | 3.89 |
+| Mac16,6 (battery) | 🍏 macOS | Apple M4 Max (14) (battery) | Apple M4 Max (32 cores) (battery) | shared with system RAM | 56.2 | 59.1 | 60.6 | 54.8 | 44.9 | 11.4 W | 1.0 W | 4.94 | 5.21 | 5.33 | 4.83 | 3.95 |
+| OpenStack Nova 26.0.7-1 A100 40GB | 🐧 Linux | Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz | NVIDIA A100-PCIE-40GB | 39 GB | 453.6 | - | 113.5 | - | 108.0 | 218.2 W | - | 2.08 | - | 0.52 | - | 0.50 |
+| OpenStack Nova A100 80GB | 🐧 Linux | Intel Xeon Processor (Icelake) | NVIDIA A100 80GB PCIe | 79 GB | 623.8 | - | 135.5 | - | 121.2 | 230.5 W | - | 2.71 | - | 0.59 | - | 0.53 |
+| OpenStack Nova RTX3090 | 🐧 Linux | Intel Xeon Processor (Cascadelake) | NVIDIA GeForce RTX 3090 | 24 GB | 349.5 | - | 114.8 | - | 105.3 | 345.6 W | - | 1.01 | - | 0.33 | - | 0.30 |
+| OpenStack Nova RTX4090 | 🐧 Linux | Intel Xeon Processor (Icelake) | NVIDIA GeForce RTX 4090 | 24 GB | 643.6 | - | 148.7 | - | 130.4 | 282.5 W | - | 2.28 | - | 0.53 | - | 0.46 |
+| OpenStack Nova Tesla T4 | 🐧 Linux | Intel Xeon Processor (Cascadelake) | Tesla T4 | 15 GB | 133.7 | - | 41.5 | - | 32.6 | 68.9 W | - | 1.94 | - | 0.60 | - | 0.47 |
 
 *RPS - Requests Per Second (embeddings throughput)*
 
@@ -57,8 +57,8 @@ The `MLX` backend makes the benchmark harder to maintain, but it provides a more
 | Device | CPU Usage (p50/p95) | RAM Used GB (p50/p95) | VRAM Used GB (p50/p95) | GPU Usage (p50/p95) | GPU Temp (p50/p95) | Battery (start/end/Δ) | Duration | GPU Power (p50/p95) | CPU Power (p50/p95) |
 |------|------|------|------|------|------|------|------|------|------|
 | ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | 24.2% / 25.7% | 10.8GB / 13.2GB | 7.0GB / 7.2GB | 16.0% / 41.0% | 64.0°C / 66.0°C | 99.0% / 100.0% / -1.0% | 2h 8m | 18.3W / 44.8W | N/A |
-| Mac16,6 | 4.0% / 12.0% | 22.3GB / 23.9GB | 10.7GB / 14.5GB | 97.0% / 100.0% | N/A | 85% / 85% / +0.0% | 42m 56s | 11.7W / 32.3W | 1.1W / 2.2W |
-| Mac16,6 (on battery) | 4.1% / 10.8% | 21.4GB / 24.5GB | 11.5GB / 14.6GB | 96.0% / 100.0% | N/A | 85% / 29% / +56.0% | 44m 32s | 11.3W / 30.5W | 1.1W / 2.3W |
+| Mac16,6 | 3.7% / 7.9% | 21.5GB / 24.3GB | 11.1GB / 14.4GB | 97.0% / 100.0% | N/A | 85% / 85% / +0.0% | 44m 29s | 11.7W / 33.4W | 1.0W / 2.3W |
+| Mac16,6 (battery) | 3.7% / 8.0% | 19.9GB / 23.6GB | 10.6GB / 14.1GB | 97.0% / 100.0% | N/A | 85% / 19% / +66.0% | 48m 7s | 11.4W / 32.8W | 1.0W / 2.1W |
 | OpenStack Nova 26.0.7-1 A100 40GB | 23.4% / 32.0% | 5.4GB / 6.2GB | 12.0GB / 13.6GB | 77.0% / 85.0% | 59.0°C / 66.0°C | N/A | 16m 44s | 218.2W / 256.2W | N/A |
 | OpenStack Nova A100 80GB | 8.7% / 11.3% | 5.6GB / 6.3GB | 12.0GB / 13.6GB | 86.0% / 90.0% | 52.0°C / 55.0°C | N/A | 14m 38s | 230.5W / 274.4W | N/A |
 | OpenStack Nova RTX3090 | 17.9% / 22.2% | 4.9GB / 5.6GB | 11.7GB / 13.2GB | 82.0% / 86.0% | 62.0°C / 62.0°C | N/A | 15m 10s | 345.6W / 348.7W | N/A |
@@ -83,8 +83,8 @@ _RPS = Rows Per Second — number of text samples encoded per second._
 | Device | Model | RPS (mean ± std) | Time (s) (mean ± std) | Embedding Dim | Batch Size |
 |------|------|------|------|------|------|
 | ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | nomic-ai/modernbert-embed-base | 162.17 ± 0.61 | 18.50 ± 0.07 | 768 | 32 |
-| Mac16,6 | nomic-ai/modernbert-embed-base | 55.81 ± 0.75 | 53.76 ± 0.72 | 768 | 32 |
-| Mac16,6 (on battery) | nomic-ai/modernbert-embed-base | 53.93 ± 3.78 | 55.82 ± 4.07 | 768 | 32 |
+| Mac16,6 | nomic-ai/modernbert-embed-base | 56.18 ± 0.78 | 53.41 ± 0.75 | 768 | 32 |
+| Mac16,6 (battery) | nomic-ai/modernbert-embed-base | 56.17 ± 0.70 | 53.42 ± 0.66 | 768 | 32 |
 | OpenStack Nova 26.0.7-1 A100 40GB | nomic-ai/modernbert-embed-base | 453.58 ± 2.09 | 6.61 ± 0.03 | 768 | 32 |
 | OpenStack Nova A100 80GB | nomic-ai/modernbert-embed-base | 623.81 ± 1.30 | 4.81 ± 0.01 | 768 | 32 |
 | OpenStack Nova RTX3090 | nomic-ai/modernbert-embed-base | 349.50 ± 0.97 | 8.58 ± 0.02 | 768 | 32 |
@@ -111,16 +111,16 @@ _RPS = Rows Per Second — number of text samples encoded per second._
 | Device | Model | TPS P50 | TPS P95 | TTFT P50 (s) | TTFT P95 (s) | TG P50 (s) | TG P95 (s) | Latency P50 (s) | Latency P95 (s) | Input Tokens (total avg) | Output Tokens (total avg) |
 |------|------|------|------|------|------|------|------|------|------|------|------|
 | ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | openai/gpt-oss-20b | 15.36 ± 0.10 | 16.81 ± 0.17 | 3.12 ± 0.07 | 6.36 ± 0.07 | 0.93 ± 0.13 | 65.72 ± 0.98 | 6.15 ± 0.15 | 69.19 ± 0.87 | 1728 | 4024 |
-| Mac16,6 | openai/gpt-oss-20b | 56.53 ± 1.65 | 77.21 ± 1.99 | 0.92 ± 0.02 | 1.23 ± 0.03 | 0.24 ± 0.00 | 17.09 ± 0.57 | 1.28 ± 0.04 | 18.28 ± 0.60 | 1728 | 3906 |
-| Mac16,6 (on battery) | openai/gpt-oss-20b | 55.34 ± 0.91 | 78.55 ± 0.97 | 0.90 ± 0.01 | 1.18 ± 0.02 | 0.24 ± 0.00 | 17.56 ± 0.19 | 1.22 ± 0.02 | 18.67 ± 0.20 | 1728 | 3982 |
+| Mac16,6 | openai/gpt-oss-20b | 61.51 ± 1.13 | 83.84 ± 2.98 | 0.88 ± 0.01 | 1.42 ± 0.02 | 0.26 ± 0.00 | 16.00 ± 0.57 | 1.43 ± 0.03 | 17.04 ± 0.60 | 1728 | 4459 |
+| Mac16,6 (battery) | openai/gpt-oss-20b | 59.15 ± 1.41 | 77.72 ± 1.14 | 0.94 ± 0.02 | 1.47 ± 0.02 | 0.27 ± 0.00 | 17.39 ± 0.30 | 1.48 ± 0.04 | 18.50 ± 0.29 | 1728 | 4459 |
 
 **OLLAMA**
 
 | Device | Model | TPS P50 | TPS P95 | TTFT P50 (s) | TTFT P95 (s) | TG P50 (s) | TG P95 (s) | Latency P50 (s) | Latency P95 (s) | Input Tokens (total avg) | Output Tokens (total avg) |
 |------|------|------|------|------|------|------|------|------|------|------|------|
 | ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | gpt-oss:20b | 16.03 ± 0.04 | 16.43 ± 0.02 | 35.68 ± 13.48 | 158.11 ± 0.38 | 4.53 ± 0.05 | 74.99 ± 1.27 | 59.90 ± 0.02 | 199.34 ± 0.39 | 1728 | 13054 |
-| Mac16,6 | gpt-oss:20b | 61.03 ± 4.29 | 63.50 ± 6.07 | 4.18 ± 0.31 | 56.83 ± 0.82 | 0.46 ± 0.04 | 25.17 ± 0.33 | 4.64 ± 0.35 | 79.54 ± 0.91 | 1728 | 12890 |
-| Mac16,6 (on battery) | gpt-oss:20b | 62.19 ± 3.33 | 66.18 ± 5.45 | 10.95 ± 1.08 | 48.79 ± 1.11 | 1.74 ± 0.11 | 29.83 ± 2.93 | 22.61 ± 0.77 | 55.19 ± 1.84 | 1728 | 14932 |
+| Mac16,6 | gpt-oss:20b | 61.43 ± 6.28 | 65.10 ± 5.17 | 3.79 ± 0.55 | 18.84 ± 1.57 | 0.45 ± 0.03 | 24.20 ± 3.50 | 5.89 ± 0.56 | 39.85 ± 3.58 | 1728 | 8535 |
+| Mac16,6 (battery) | gpt-oss:20b | 60.56 ± 6.81 | 64.23 ± 5.94 | 4.01 ± 0.80 | 42.93 ± 42.00 | 0.51 ± 0.11 | 24.65 ± 3.90 | 9.34 ± 6.01 | 59.53 ± 34.44 | 1728 | 11877 |
 | OpenStack Nova 26.0.7-1 A100 40GB | gpt-oss:20b | 113.51 ± 1.74 | 119.83 ± 0.78 | 1.92 ± 0.01 | 31.23 ± 15.21 | 0.56 ± 0.00 | 11.08 ± 0.85 | 5.24 ± 0.09 | 35.87 ± 15.85 | 1728 | 13042 |
 | OpenStack Nova A100 80GB | gpt-oss:20b | 135.49 ± 0.36 | 141.08 ± 0.38 | 1.58 ± 0.01 | 26.31 ± 12.50 | 0.48 ± 0.01 | 9.41 ± 0.67 | 4.40 ± 0.01 | 30.23 ± 12.96 | 1728 | 13042 |
 | OpenStack Nova RTX3090 | gpt-oss:20b | 114.83 ± 0.13 | 119.78 ± 0.46 | 3.24 ± 0.03 | 9.86 ± 0.04 | 0.24 ± 0.00 | 10.64 ± 0.07 | 5.30 ± 0.01 | 19.43 ± 0.09 | 1728 | 8926 |
@@ -152,16 +152,16 @@ _RPS = Rows Per Second — number of text samples encoded per second._
 | Device | Model | TPS P50 | TPS P95 | TTFT P50 (s) | TTFT P95 (s) | TG P50 (s) | TG P95 (s) | Latency P50 (s) | Latency P95 (s) | Input Tokens (total avg) | Output Tokens (total avg) |
 |------|------|------|------|------|------|------|------|------|------|------|------|
 | ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | qwen/qwen3-vl-8b | 22.43 ± 0.08 | 23.20 ± 0.55 | 0.75 ± 0.05 | 0.84 ± 0.05 | 22.24 ± 0.03 | 31.98 ± 0.10 | 23.03 ± 0.06 | 32.65 ± 0.10 | 290 | 5129 |
-| Mac16,6 | qwen/qwen3-vl-8b | 51.47 ± 1.30 | 53.62 ± 1.82 | 1.58 ± 0.01 | 1.77 ± 0.07 | 9.62 ± 0.48 | 13.42 ± 0.37 | 11.24 ± 0.48 | 15.06 ± 0.30 | 310 | 5949 |
-| Mac16,6 (on battery) | qwen/qwen3-vl-8b | 48.95 ± 2.10 | 53.44 ± 5.07 | 1.63 ± 0.02 | 1.82 ± 0.07 | 10.66 ± 1.12 | 13.86 ± 1.22 | 12.36 ± 1.18 | 15.52 ± 1.26 | 310 | 5956 |
+| Mac16,6 | qwen3-vl-8b-thinking-mlx | 55.39 ± 0.96 | 56.20 ± 1.60 | 1.51 ± 0.02 | 1.65 ± 0.02 | 20.15 ± 1.15 | 24.70 ± 0.81 | 21.68 ± 1.14 | 26.29 ± 0.91 | 310 | 11899 |
+| Mac16,6 (battery) | qwen3-vl-8b-thinking-mlx | 54.82 ± 1.12 | 55.60 ± 1.58 | 1.53 ± 0.02 | 1.66 ± 0.01 | 19.57 ± 0.35 | 29.45 ± 1.85 | 21.08 ± 0.33 | 31.03 ± 1.82 | 310 | 12377 |
 
 **OLLAMA**
 
 | Device | Model | TPS P50 | TPS P95 | TTFT P50 (s) | TTFT P95 (s) | TG P50 (s) | TG P95 (s) | Latency P50 (s) | Latency P95 (s) | Input Tokens (total avg) | Output Tokens (total avg) |
 |------|------|------|------|------|------|------|------|------|------|------|------|
 | ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | qwen3-vl:8b | 13.60 ± 0.08 | 14.12 ± 0.06 | 54.82 ± 5.26 | 72.83 ± 0.45 | 58.42 ± 1.03 | 83.23 ± 0.56 | 109.44 ± 6.02 | 152.33 ± 1.20 | 1814 | 14933 |
-| Mac16,6 | qwen3-vl:8b | 47.78 ± 4.93 | 49.61 ± 6.79 | 15.29 ± 1.24 | 27.64 ± 0.60 | 16.28 ± 0.91 | 19.59 ± 1.52 | 33.09 ± 3.44 | 44.33 ± 0.41 | 1814 | 15577 |
-| Mac16,6 (on battery) | qwen3-vl:8b | 46.46 ± 0.24 | 51.22 ± 8.10 | 16.29 ± 0.84 | 18.49 ± 0.62 | 17.14 ± 0.16 | 21.68 ± 0.57 | 32.78 ± 1.95 | 38.83 ± 1.10 | 1814 | 15516 |
+| Mac16,6 | qwen3-vl:8b | 45.66 ± 0.39 | 49.68 ± 6.80 | 15.68 ± 0.41 | 27.98 ± 0.55 | 16.31 ± 0.35 | 19.45 ± 1.09 | 33.54 ± 2.06 | 44.30 ± 0.94 | 1814 | 15577 |
+| Mac16,6 (battery) | qwen3-vl:8b | 44.87 ± 0.09 | 49.33 ± 7.16 | 15.85 ± 0.47 | 28.47 ± 0.75 | 16.57 ± 0.33 | 19.74 ± 1.05 | 33.88 ± 2.23 | 45.10 ± 1.29 | 1814 | 15577 |
 | OpenStack Nova 26.0.7-1 A100 40GB | qwen3-vl:8b | 108.03 ± 0.17 | 108.57 ± 0.57 | 7.09 ± 0.01 | 11.59 ± 0.70 | 6.97 ± 0.03 | 9.42 ± 0.01 | 14.03 ± 0.02 | 19.40 ± 0.46 | 1814 | 16212 |
 | OpenStack Nova A100 80GB | qwen3-vl:8b | 121.16 ± 0.23 | 121.55 ± 0.26 | 6.26 ± 0.01 | 10.34 ± 0.70 | 6.25 ± 0.03 | 8.43 ± 0.02 | 12.53 ± 0.03 | 17.34 ± 0.52 | 1814 | 16212 |
 | OpenStack Nova RTX3090 | qwen3-vl:8b | 105.30 ± 0.42 | 105.65 ± 0.28 | 7.44 ± 0.09 | 11.97 ± 0.06 | 7.59 ± 0.28 | 9.05 ± 0.02 | 14.17 ± 0.11 | 19.59 ± 0.06 | 1814 | 15940 |

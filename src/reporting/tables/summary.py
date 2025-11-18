@@ -25,6 +25,7 @@ class SummaryTableGenerator(BaseTableGenerator):
             [
                 "Device",
                 "Platform",
+                "CPU",
                 "GPU",
                 "VRAM",
                 "Emb RPS P50",
@@ -152,9 +153,10 @@ class SummaryTableGenerator(BaseTableGenerator):
         # Format device info
         vram_str = format_vram(device_info.get("gpu_memory_gb", "N/A"))
         platform_str = format_platform(device_info.get("platform", "Unknown"))
+        cpu_str = device_info.get("processor", "Unknown")
 
         return (
-            f"| {device_info['host']} | {platform_str} | "
+            f"| {device_info['host']} | {platform_str} | {cpu_str} | "
             f"{device_info['gpu_name']} | {vram_str} | "
             f"{emb_rps_str} | {llm_tps_lms_str} | {llm_tps_ollama_str} | "
             f"{vlm_tps_lms_str} | {vlm_tps_ollama_str} | "

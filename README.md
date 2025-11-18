@@ -20,6 +20,8 @@ It’s designed for **AI/ML engineers** who prefer to run workloads locally — 
 > **See full benchmark results here:**
 > [Laperf Results](https://bogdanminko.github.io/laperf/results.html)
 
+![laperf-cli](assets/laperf_cli.png)
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -76,18 +78,18 @@ For embedding tasks, La Perf **automatically detects your available device** and
 
 ## Benchmark Results
 
-> **Last Updated**: 2025-11-14
+> **Last Updated**: 2025-11-19
 
-| Device | Platform | GPU | VRAM | Emb RPS P50 | LLM TPS P50 (lms) | LLM TPS P50 (ollama) | VLM TPS P50 (lms) | VLM TPS P50 (ollama) | GPU Power P50 | CPU Power P50 | Emb Efficiency (RPS/W) | LLM Efficiency (TPS/W) lms | LLM Efficiency (TPS/W) ollama | VLM Efficiency (TPS/W) lms | VLM Efficiency (TPS/W) ollama |
-|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
-| ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | 🐧 Linux | NVIDIA GeForce RTX 4060 Laptop GPU | 8 GB | 162.2 | 15.4 | 16.0 | 22.4 | 13.6 | 18.3 W | - | 8.88 | 0.84 | 0.88 | 1.23 | 0.74 |
-| Mac16,6 | 🍏 macOS | Apple M4 Max (32 cores) | shared with system RAM | 55.8 | 56.5 | 61.0 | 51.5 | 47.8 | 11.7 W | 1.1 W | 4.77 | 4.84 | 5.22 | 4.40 | 4.09 |
-| Mac16,6 (on battery) | 🍏 macOS | Apple M4 Max (32 cores) (on battery) | shared with system RAM | 53.9 | 55.3 | 62.2 | 49.0 | 46.5 | 11.3 W | 1.1 W | 4.79 | 4.91 | 5.52 | 4.35 | 4.13 |
-| OpenStack Nova 26.0.7-1 A100 40GB | 🐧 Linux | NVIDIA A100-PCIE-40GB | 39 GB | 453.6 | - | 113.5 | - | 108.0 | 218.2 W | - | 2.08 | - | 0.52 | - | 0.50 |
-| OpenStack Nova A100 80GB | 🐧 Linux | NVIDIA A100 80GB PCIe | 79 GB | 623.8 | - | 135.5 | - | 121.2 | 230.5 W | - | 2.71 | - | 0.59 | - | 0.53 |
-| OpenStack Nova RTX3090 | 🐧 Linux | NVIDIA GeForce RTX 3090 | 24 GB | 349.5 | - | 114.8 | - | 105.3 | 345.6 W | - | 1.01 | - | 0.33 | - | 0.30 |
-| OpenStack Nova RTX4090 | 🐧 Linux | NVIDIA GeForce RTX 4090 | 24 GB | 643.6 | - | 148.7 | - | 130.4 | 282.5 W | - | 2.28 | - | 0.53 | - | 0.46 |
-| OpenStack Nova Tesla T4 | 🐧 Linux | Tesla T4 | 15 GB | 133.7 | - | 41.5 | - | 32.6 | 68.9 W | - | 1.94 | - | 0.60 | - | 0.47 |
+| Device | Platform | CPU | GPU | VRAM | Emb RPS P50 | LLM TPS P50 (lms) | LLM TPS P50 (ollama) | VLM TPS P50 (lms) | VLM TPS P50 (ollama) | GPU Power P50 | CPU Power P50 | Emb Efficiency (RPS/W) | LLM Efficiency (TPS/W) lms | LLM Efficiency (TPS/W) ollama | VLM Efficiency (TPS/W) lms | VLM Efficiency (TPS/W) ollama |
+|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| ASUSTeK COMPUTER ASUS Vivobook Pro N6506MV | 🐧 Linux | Intel(R) Core(TM) Ultra 9 185H (16) | NVIDIA GeForce RTX 4060 Laptop GPU | 8 GB | 162.2 | 15.4 | 16.0 | 22.4 | 13.6 | 18.3 W | - | 8.88 | 0.84 | 0.88 | 1.23 | 0.74 |
+| Mac16,6 | 🍏 macOS | Apple M4 Max (14) | Apple M4 Max (32 cores) | shared with system RAM | 56.2 | 61.5 | 61.4 | 55.4 | 45.7 | 11.7 W | 1.0 W | 4.79 | 5.24 | 5.24 | 4.72 | 3.89 |
+| Mac16,6 (battery) | 🍏 macOS | Apple M4 Max (14) (battery) | Apple M4 Max (32 cores) (battery) | shared with system RAM | 56.2 | 59.1 | 60.6 | 54.8 | 44.9 | 11.4 W | 1.0 W | 4.94 | 5.21 | 5.33 | 4.83 | 3.95 |
+| OpenStack Nova 26.0.7-1 A100 40GB | 🐧 Linux | Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz | NVIDIA A100-PCIE-40GB | 39 GB | 453.6 | - | 113.5 | - | 108.0 | 218.2 W | - | 2.08 | - | 0.52 | - | 0.50 |
+| OpenStack Nova A100 80GB | 🐧 Linux | Intel Xeon Processor (Icelake) | NVIDIA A100 80GB PCIe | 79 GB | 623.8 | - | 135.5 | - | 121.2 | 230.5 W | - | 2.71 | - | 0.59 | - | 0.53 |
+| OpenStack Nova RTX3090 | 🐧 Linux | Intel Xeon Processor (Cascadelake) | NVIDIA GeForce RTX 3090 | 24 GB | 349.5 | - | 114.8 | - | 105.3 | 345.6 W | - | 1.01 | - | 0.33 | - | 0.30 |
+| OpenStack Nova RTX4090 | 🐧 Linux | Intel Xeon Processor (Icelake) | NVIDIA GeForce RTX 4090 | 24 GB | 643.6 | - | 148.7 | - | 130.4 | 282.5 W | - | 2.28 | - | 0.53 | - | 0.46 |
+| OpenStack Nova Tesla T4 | 🐧 Linux | Intel Xeon Processor (Cascadelake) | Tesla T4 | 15 GB | 133.7 | - | 41.5 | - | 32.6 | 68.9 W | - | 1.94 | - | 0.60 | - | 0.47 |
 
 *RPS - Requests Per Second (embeddings throughput)*
 
