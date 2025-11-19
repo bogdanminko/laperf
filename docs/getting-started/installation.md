@@ -111,13 +111,13 @@ Search for `gpt-oss-20b` in available models
 
 **Load VLM**
 
-Search for `Qwen3-VL-8B-Instruct` in available models
+Search for `Qwen3-VL-8B-Thinking` in available models
 
 === "macOS (MLX)"
-    `lmstudio-community/Qwen3-VL-8B-Instruct-MLX-4bit`
+    `mlx-community/Qwen3-VL-8B-Thinking-4bit`
 
 === "Windows/Linux (GGUF)"
-    `lmstudio-community/Qwen3-VL-8B-Instruct-GGUF-Q4_K_M`
+    `Qwen/Qwen3-VL-8B-Thinking-GGUF-Q4_K_M`
 
 
 ### 3. Start the server

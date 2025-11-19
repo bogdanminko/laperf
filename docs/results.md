@@ -1,6 +1,5 @@
 ## Tasks
 La Perf is a collection of reproducible tests and community-submitted results for :
-
 - #### **Embeddings** — ✅ Ready (sentence-transformers, [IMDB dataset](https://huggingface.co/datasets/stanfordnlp/imdb))
    sts models:
    - [modernbert-embed-base](https://huggingface.co/nomic-ai/modernbert-embed-base)
@@ -14,9 +13,9 @@ La Perf is a collection of reproducible tests and community-submitted results fo
 
 - #### **VLM inference** — ✅ Ready (LM Studio and Ollama, [Hallucination_COCO dataset](https://huggingface.co/datasets/DogNeverSleep/Hallucination_COCO))
    vlm models:
-   - **LM Studio**: [Qwen3-VL-8B-Instruct](https://lmstudio.ai/models/qwen/qwen3-vl-8b)
-     - *macOS*: `lmstudio-community/Qwen3-VL-8B-Instruct-MLX-4bit` (MLX 4-bit)
-     - *Other platforms*: `lmstudio-community/Qwen3-VL-8B-Instruct-GGUF-Q4_K_M` (Q4_K_M)
+   - **LM Studio**: Qwen3-VL-8B-Thinking
+     - *macOS*: `mlx-community/Qwen3-VL-8B-Thinking-4bit` (MLX 4-bit)
+     - *Other platforms*: `Qwen/Qwen3-VL-8B-Thinking-GGUF-Q4_K_M` (Q4_K_M)
    - **Ollama**: [qwen3-vl:8b](https://ollama.com/library/qwen3-vl:8b)
       - **all platforms**: `qwen3-vl:8b` (Q4_K_M)
 - #### **Diffusion image generation** — 📋 Planned
