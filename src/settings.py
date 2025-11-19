@@ -47,7 +47,7 @@ LMS_GGUF_LLM_MODEL_NAME = os.getenv("LMS_GGUF_LLM_MODEL_NAME", "openai/gpt-oss-2
 # VLM Models
 LMS_MLX_VLM_MODEL_NAME = os.getenv("LMS_MLX_VLM_MODEL_NAME", "qwen3-vl-8b-thinking-mlx")
 LMS_GGUF_VLM_MODEL_NAME = os.getenv(
-    "LMS_GGUF_VLM_MODEL_NAME", "qwen3-vl-8b-thinking-mlx"
+    "LMS_GGUF_VLM_MODEL_NAME", "qwen3-vl-8b-thinking"
 )
 
 # Active model selection based on device
