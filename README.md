@@ -35,6 +35,7 @@ It’s designed for **AI/ML engineers** who prefer to run workloads locally — 
 ## Overview
 ### Tasks
 La Perf is a collection of reproducible tests and community-submitted results for :
+
 - #### **Embeddings** — ✅ Ready (sentence-transformers, [IMDB dataset](https://huggingface.co/datasets/stanfordnlp/imdb))
    sts models:
    - [modernbert-embed-base](https://huggingface.co/nomic-ai/modernbert-embed-base)
@@ -44,8 +45,6 @@ La Perf is a collection of reproducible tests and community-submitted results fo
      - *macOS*: `mlx-community/gpt-oss-20b-MXFP4-Q8` (MLX MXFP4-Q8)
      - *Other platforms*: `lmstudio-community/gpt-oss-20b-GGUF` (GGUF)
    - **Ollama**: [gpt-oss-20b](https://ollama.com/library/gpt-oss:20b)
-
-
 - #### **VLM inference** — ✅ Ready (LM Studio and Ollama, [Hallucination_COCO dataset](https://huggingface.co/datasets/DogNeverSleep/Hallucination_COCO))
    vlm models:
    - **LM Studio**: Qwen3-VL-8B-Thinking
