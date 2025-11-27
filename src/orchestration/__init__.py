@@ -1,4 +1,4 @@
-"""Orchestration modules for NOBS benchmark suite."""
+"""Orchestration modules for La Perf benchmark suite."""
 
 from src.orchestration.runner import run_all_benchmarks
 

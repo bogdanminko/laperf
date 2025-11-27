@@ -1,4 +1,4 @@
-"""CLI interaction modules for NOBS benchmark suite."""
+"""CLI interaction modules for La Perf benchmark suite."""
 
 from src.cli.display import display_device_info, display_final_summary
 from src.cli.menu import select_benchmarks

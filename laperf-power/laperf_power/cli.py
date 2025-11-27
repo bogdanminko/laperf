@@ -40,13 +40,13 @@ class PowerMonitorCLI:
 
     def _signal_handler(self, signum, frame):
         """Handle Ctrl+C gracefully."""
-        print("\n\n⏹  Stopping monitoring...")
+        print("\n\nStopping monitoring...")
         self.running = False
 
     def _print_header(self):
         """Print monitoring header."""
         print("\n" + "=" * 80)
-        print("⚡ REAL-TIME POWER MONITORING")
+        print("REAL-TIME POWER MONITORING")
         print("=" * 80)
         print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"Interval: {self.interval}s")
@@ -100,71 +100,67 @@ class PowerMonitorCLI:
     def _print_summary(self, results: dict):
         """Print final statistics summary."""
         print("\n\n" + "=" * 80)
-        print("📊 MONITORING SUMMARY")
+        print("MONITORING SUMMARY")
         print("=" * 80)
 
         # Duration and samples
         print(f"\nDuration: {results.get('monitoring_duration_seconds', 0):.1f}s")
-        print(f"Samples collected: {results.get('samples_collected', 0)}")
+        print(f"Samples collected: {results.get('samples_collected', 0)}\n")
 
-        # GPU Power
+        # Build table rows
+        table_rows = []
+
+        # Power metrics
         if "gpu_watts_p50" in results:
-            print("\n🎮 GPU Power:")
-            print(f"  P50: {results['gpu_watts_p50']:.2f}W")
-            print(f"  P95: {results['gpu_watts_p95']:.2f}W")
-
-        # CPU Power
+            table_rows.append(["GPU Power", f"{results['gpu_watts_p50']:.2f}W", f"{results['gpu_watts_p95']:.2f}W"])
         if "cpu_watts_p50" in results:
-            print("\n💻 CPU Power:")
-            print(f"  P50: {results['cpu_watts_p50']:.2f}W")
-            print(f"  P95: {results['cpu_watts_p95']:.2f}W")
-
-        # System Power
+            table_rows.append(["CPU Power", f"{results['cpu_watts_p50']:.2f}W", f"{results['cpu_watts_p95']:.2f}W"])
         if "system_watts_p50" in results:
-            print("\n⚡ System Power:")
-            print(f"  P50: {results['system_watts_p50']:.2f}W")
-            print(f"  P95: {results['system_watts_p95']:.2f}W")
+            table_rows.append(["System Power", f"{results['system_watts_p50']:.2f}W", f"{results['system_watts_p95']:.2f}W"])
 
-        # GPU Utilization
+        # Utilization metrics
         if "gpu_util_percent_p50" in results:
-            print("\n🎯 GPU Utilization:")
-            print(f"  P50: {results['gpu_util_percent_p50']:.0f}%")
-            print(f"  P95: {results['gpu_util_percent_p95']:.0f}%")
+            table_rows.append(["GPU Utilization", f"{results['gpu_util_percent_p50']:.0f}%", f"{results['gpu_util_percent_p95']:.0f}%"])
+        if "cpu_util_percent_p50" in results:
+            table_rows.append(["CPU Utilization", f"{results['cpu_util_percent_p50']:.0f}%", f"{results['cpu_util_percent_p95']:.0f}%"])
 
-        # GPU VRAM
+        # Memory metrics
         if "gpu_vram_used_mb_p50" in results:
             vram_p50 = results['gpu_vram_used_mb_p50'] / 1024
             vram_p95 = results['gpu_vram_used_mb_p95'] / 1024
-            print("\n💾 GPU VRAM:")
-            print(f"  P50: {vram_p50:.2f}GB")
-            print(f"  P95: {vram_p95:.2f}GB")
-
-        # CPU Utilization
-        if "cpu_util_percent_p50" in results:
-            print("\n🔧 CPU Utilization:")
-            print(f"  P50: {results['cpu_util_percent_p50']:.0f}%")
-            print(f"  P95: {results['cpu_util_percent_p95']:.0f}%")
-
-        # RAM
+            table_rows.append(["GPU VRAM", f"{vram_p50:.2f}GB", f"{vram_p95:.2f}GB"])
         if "ram_used_gb_p50" in results:
-            print("\n🧠 RAM Usage:")
-            print(f"  P50: {results['ram_used_gb_p50']:.2f}GB")
-            print(f"  P95: {results['ram_used_gb_p95']:.2f}GB")
+            table_rows.append(["RAM Usage", f"{results['ram_used_gb_p50']:.2f}GB", f"{results['ram_used_gb_p95']:.2f}GB"])
 
-        # GPU Temperature
+        # Temperature
         if "gpu_temp_celsius_p50" in results:
-            print("\n🌡️  GPU Temperature:")
-            print(f"  P50: {results['gpu_temp_celsius_p50']:.0f}°C")
-            print(f"  P95: {results['gpu_temp_celsius_p95']:.0f}°C")
+            table_rows.append(["GPU Temperature", f"{results['gpu_temp_celsius_p50']:.0f}°C", f"{results['gpu_temp_celsius_p95']:.0f}°C"])
 
-        # Battery
+        # Print table
+        if table_rows:
+            # Calculate column widths
+            col1_width = max(len(row[0]) for row in table_rows)
+            col2_width = max(len(row[1]) for row in table_rows)
+            col3_width = max(len(row[2]) for row in table_rows)
+
+            # Ensure minimum widths
+            col1_width = max(col1_width, len("Metric"))
+            col2_width = max(col2_width, len("P50"))
+            col3_width = max(col3_width, len("P95"))
+
+            # Print header
+            header = f"{'Metric':<{col1_width}} | {'P50':>{col2_width}} | {'P95':>{col3_width}}"
+            separator = "-" * len(header)
+            print(header)
+            print(separator)
+
+            # Print rows
+            for row in table_rows:
+                print(f"{row[0]:<{col1_width}} | {row[1]:>{col2_width}} | {row[2]:>{col3_width}}")
+
+        # Battery info (separate, not in table)
         if "battery_drain_percent" in results:
-            print("\n🔋 Battery:")
-            print(
-                f"  Start: {results['battery_start_percent']:.1f}% → "
-                f"End: {results['battery_end_percent']:.1f}%"
-            )
-            print(f"  Drain: {results['battery_drain_percent']:.1f}%")
+            print(f"\nBattery: {results['battery_start_percent']:.1f}% → {results['battery_end_percent']:.1f}% (drain: {results['battery_drain_percent']:.1f}%)")
 
         print("\n" + "=" * 80 + "\n")
 
@@ -180,9 +176,9 @@ class PowerMonitorCLI:
             with open(self.output_file, "w") as f:
                 json.dump(results, f, indent=2)
 
-            print(f"✓ Results saved to: {self.output_file}")
+            print(f"Results saved to: {self.output_file}")
         except Exception as e:
-            print(f"⚠️  Failed to save results: {e}")
+            print(f"Warning: Failed to save results: {e}")
 
     def run(self):
         """Run the monitoring loop."""

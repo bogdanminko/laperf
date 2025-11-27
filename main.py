@@ -7,7 +7,7 @@ from src.reporting import save_report
 
 def main():
     """
-    Main entry point for NOBS benchmark suite.
+    Main entry point for La Perf benchmark suite.
     """
     # Get and display device info
     device_info = get_device_info()
