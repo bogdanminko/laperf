@@ -1,9 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "nobs"
+name = "laperf"
 version = "0.1.0"
-description = "Add your description here"
+description = "Local AI Performance Benchmark Suite - Reproducible AI hardware benchmarks with real-time power monitoring"
 readme = "README.md"
 requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Bogdan Minko", email = "bogdan01m@gmail.com"}
+]
+keywords = ["ai", "benchmark", "performance", "gpu", "llm", "embeddings", "power-monitoring"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Benchmark",
+]
+
+[project.urls]
+Homepage = "https://github.com/bogdanminko/laperf"
+Documentation = "https://bogdanminko.github.io/laperf/"
+Repository = "https://github.com/bogdanminko/laperf"
+"Bug Tracker" = "https://github.com/bogdanminko/laperf/issues"
+
 dependencies = [
     "accelerate>=1.10.1",
     "datasets>=4.2.0",
@@ -44,6 +71,12 @@ quality = [
     "pre-commit>=4.0.0",
     "types-requests>=2.32.0",
 ]
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
 
 [tool.mypy]
 python_version = "3.12"

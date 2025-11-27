@@ -157,6 +157,81 @@ This will:
 
 ---
 
+## Power Monitoring Tool
+
+La Perf includes a standalone real-time power monitoring tool that works independently from benchmarks.
+
+### Installation & Usage
+
+**Option 1: Run without installation (recommended)** ⭐
+```bash
+# Lightweight standalone package (~5 MB with psutil)
+uvx laperf-power
+
+# With custom options
+uvx laperf-power --interval 1.0 --output metrics.json
+```
+
+**Option 2: Install as a global tool**
+```bash
+# Lightweight standalone package
+uv tool install laperf-power
+# or: pip install laperf-power
+
+# Now available everywhere
+laperf-power
+laperf-power --interval 10.0 --no-sudo
+```
+
+**Option 3: Development mode (from source)**
+```bash
+git clone https://github.com/bogdanminko/laperf.git
+cd laperf/laperf-power
+uv pip install -e .
+laperf-power
+```
+
+### CLI Options
+
+```bash
+laperf-power [OPTIONS]
+
+Options:
+  --interval SECONDS    Sampling interval in seconds (default: 10.0)
+  --no-sudo            Disable sudo powermetrics on macOS
+  --output FILE        Save results to JSON file
+  -h, --help           Show help message
+```
+
+**Press Ctrl+C to stop and view statistics.**
+
+### What it monitors
+
+- **GPU**: Power (W), Utilization (%), VRAM (GB), Temperature (°C)
+- **CPU**: Power (W, macOS only with sudo), Utilization (%)
+- **System**: RAM usage (GB), Battery drain (%)
+
+### Example Output
+
+```
+⚡ REAL-TIME POWER MONITORING
+================================================================================
+Started: 2025-11-27 14:30:00
+Interval: 1.0s
+================================================================================
+
+Press Ctrl+C to stop and view statistics
+
+[Sample #42] GPU: 11.7W 32% 8.2GB | CPU: 15% 1.0W | RAM: 16.3GB | Temp: 45°C
+```
+
+**Platform Support:**
+- **macOS**: Full support (with sudo for GPU/CPU power via `powermetrics`)
+- **Linux (NVIDIA)**: GPU metrics via `nvidia-smi`
+- **Windows**: Basic CPU/RAM metrics via `psutil`
+
+---
+
 ## Running on GPU Servers (Docker)
 
 For production deployments on cloud GPU instances or dedicated servers, you can use our Docker image:
