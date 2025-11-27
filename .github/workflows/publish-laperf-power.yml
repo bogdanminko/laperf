@@ -10,7 +10,7 @@ on:
       test_pypi:
         description: 'Publish to TestPyPI instead of PyPI'
         required: false
-        default: true
+        default: false
         type: boolean
 
 jobs:

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "laperf"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local AI Performance Benchmark Suite - Reproducible AI hardware benchmarks with real-time power monitoring"
 readme = "README.md"
 requires-python = ">=3.12"
