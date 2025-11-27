@@ -75,8 +75,11 @@ laperf-power --output power_metrics.json
 
 ## Example Output
 
+### Real-time Monitoring
+
 ```
-⚡ REAL-TIME POWER MONITORING
+================================================================================
+REAL-TIME POWER MONITORING
 ================================================================================
 Started: 2025-11-27 14:30:00
 Interval: 10.0s
@@ -87,42 +90,29 @@ Press Ctrl+C to stop and view statistics
 [Sample #42] GPU: 11.7W 32% 8.2GB | CPU: 15% 1.0W | RAM: 16.3GB | Temp: 45°C
 ```
 
-**Final statistics:**
+### Final Statistics
 
 ```
-📊 MONITORING SUMMARY
+================================================================================
+MONITORING SUMMARY
 ================================================================================
 
 Duration: 420.0s
 Samples collected: 42
 
-🎮 GPU Power:
-  P50: 11.7W
-  P95: 13.2W
+Metric             |     P50 |     P95
+-----------------------------------------
+GPU Power          | 11.70W  | 13.20W
+CPU Power          |  1.00W  |  1.50W
+GPU Utilization    |    32%  |    45%
+GPU VRAM           |  8.20GB |  8.50GB
+CPU Utilization    |    15%  |    22%
+RAM Usage          | 16.30GB | 16.70GB
+GPU Temperature    |    45°C |    48°C
 
-💻 CPU Power:
-  P50: 1.0W
-  P95: 1.5W
+Battery: 85.0% → 83.5% (drain: 1.5%)
 
-🎯 GPU Utilization:
-  P50: 32%
-  P95: 45%
-
-💾 GPU VRAM:
-  P50: 8.2GB
-  P95: 8.5GB
-
-🔧 CPU Utilization:
-  P50: 15%
-  P95: 22%
-
-🧠 RAM Usage:
-  P50: 16.3GB
-  P95: 16.7GB
-
-🔋 Battery:
-  Start: 85.0% → End: 83.5%
-  Drain: 1.5%
+================================================================================
 ```
 
 ## macOS sudo Setup (Optional)
