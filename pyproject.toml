@@ -25,12 +25,6 @@ classifiers = [
     "Topic :: System :: Benchmark",
 ]
 
-[project.urls]
-Homepage = "https://github.com/bogdanminko/laperf"
-Documentation = "https://bogdanminko.github.io/laperf/"
-Repository = "https://github.com/bogdanminko/laperf"
-"Bug Tracker" = "https://github.com/bogdanminko/laperf/issues"
-
 dependencies = [
     "accelerate>=1.10.1",
     "datasets>=4.2.0",
@@ -53,6 +47,12 @@ dependencies = [
     "transformers>=4.57.1",
     "scipy>=1.16.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/bogdanminko/laperf"
+Documentation = "https://bogdanminko.github.io/laperf/"
+Repository = "https://github.com/bogdanminko/laperf"
+"Bug Tracker" = "https://github.com/bogdanminko/laperf/issues"
 
 [dependency-groups]
 dev = [

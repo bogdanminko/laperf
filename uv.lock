@@ -908,11 +908,6 @@ dependencies = [
     { name = "transformers" },
 ]
 
-[package.optional-dependencies]
-power = [
-    { name = "psutil" },
-]
-
 [package.dev-dependencies]
 dev = [
     { name = "pre-commit" },
@@ -941,7 +936,6 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.3.4" },
     { name = "openai", specifier = ">=2.5.0" },
     { name = "psutil", specifier = ">=7.1.0" },
-    { name = "psutil", marker = "extra == 'power'", specifier = ">=7.1.0" },
     { name = "pydantic", specifier = ">=2.12.3" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "requests", specifier = ">=2.32.5" },
@@ -955,7 +949,6 @@ requires-dist = [
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", specifier = ">=4.57.1" },
 ]
-provides-extras = ["power"]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pre-commit", specifier = ">=4.3.0" }]
