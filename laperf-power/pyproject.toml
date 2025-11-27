@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "laperf-power"
+version = "0.1.0"
+description = "Lightweight real-time power and resource monitoring tool for AI workloads"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Bogdan Minko", email = "bogdan01m@gmail.com"}
+]
+keywords = ["power", "monitoring", "gpu", "cpu", "metrics", "performance", "ai", "ml"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Hardware",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "psutil>=5.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bogdanminko/laperf"
+Documentation = "https://bogdanminko.github.io/laperf/"
+Repository = "https://github.com/bogdanminko/laperf"
+"Bug Tracker" = "https://github.com/bogdanminko/laperf/issues"
+
+[project.scripts]
+laperf-power = "laperf_power.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["laperf_power"]
