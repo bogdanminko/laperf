@@ -1,6 +1,8 @@
 <div align="center">
 
 # La Perf
+[![PyPI - laperf](https://img.shields.io/pypi/v/laperf?label=laperf&color=blue)](https://pypi.org/project/laperf/)
+[![PyPI - laperf-power](https://img.shields.io/pypi/v/laperf-power?label=laperf-power&color=blue)](https://pypi.org/project/laperf-power/)
 [![CUDA](https://img.shields.io/badge/CUDA-Supported-76B900?style=flat&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-zone)
 [![MPS](https://img.shields.io/badge/MPS-Optimized-000000?style=flat&logo=apple&logoColor=white)](https://developer.apple.com/metal/)
 [![MLX](https://img.shields.io/badge/MLX-Accelerated-FF6B35?style=flat&logo=apple&logoColor=white)](https://github.com/ml-explore/mlx)
@@ -161,11 +163,14 @@ This will:
 
 La Perf includes a standalone real-time power monitoring tool that works independently from benchmarks.
 
+📦 **PyPI Package**: [laperf-power](https://pypi.org/project/laperf-power/)
+
 ### Installation & Usage
 
 **Option 1: Run without installation (recommended)** ⭐
 ```bash
 # Lightweight standalone package (~5 MB with psutil)
+# PyPI: https://pypi.org/project/laperf-power/
 uvx laperf-power
 
 # With custom options

@@ -2,6 +2,8 @@
 
 <div align="center" markdown>
 
+[![PyPI - laperf](https://img.shields.io/pypi/v/laperf?label=laperf&color=blue)](https://pypi.org/project/laperf/)
+[![PyPI - laperf-power](https://img.shields.io/pypi/v/laperf-power?label=laperf-power&color=blue)](https://pypi.org/project/laperf-power/)
 [![CUDA](https://img.shields.io/badge/CUDA-Supported-76B900?style=flat&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-zone)
 [![MPS](https://img.shields.io/badge/MPS-Optimized-000000?style=flat&logo=apple&logoColor=white)](https://developer.apple.com/metal/)
 [![MLX](https://img.shields.io/badge/MLX-Accelerated-FF6B35?style=flat&logo=apple&logoColor=white)](https://github.com/ml-explore/mlx)
@@ -67,10 +69,21 @@ The goal of this project is to create an **all-in-one source of information** yo
 === "Power Metrics"
     **Real-time power and resource monitoring**
 
+    📦 **Standalone PyPI Package**: [laperf-power](https://pypi.org/project/laperf-power/)
+
     - CPU/GPU usage
     - Memory consumption (RAM, VRAM)
     - GPU power draw
     - Battery drain (laptops)
+
+    ```bash
+    # Run without installation
+    uvx laperf-power
+
+    # Or install globally
+    pip install laperf-power
+    laperf-power
+    ```
 
 ---
 

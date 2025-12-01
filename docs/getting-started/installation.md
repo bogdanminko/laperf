@@ -183,6 +183,61 @@ This will:
     La Perf automatically detects your GPU and optimizes accordingly. No manual configuration needed!
 
 ---
+
+## Power Monitoring Tool
+
+La Perf includes a standalone power monitoring tool available as a separate PyPI package.
+
+📦 **PyPI Package**: [laperf-power](https://pypi.org/project/laperf-power/)
+
+### Installation Options
+
+**Option 1: Run without installation (recommended)** ⭐
+```bash
+# Lightweight standalone package (~5 MB with psutil)
+uvx laperf-power
+```
+
+**Option 2: Install globally**
+```bash
+# Using pip
+pip install laperf-power
+
+# Using uv
+uv tool install laperf-power
+
+# Run anywhere
+laperf-power
+```
+
+**Option 3: From source**
+```bash
+git clone https://github.com/bogdanminko/laperf.git
+cd laperf/laperf-power
+uv pip install -e .
+laperf-power
+```
+
+### Usage
+
+```bash
+laperf-power [OPTIONS]
+
+Options:
+  --interval SECONDS    Sampling interval in seconds (default: 10.0)
+  --no-sudo            Disable sudo powermetrics on macOS
+  --output FILE        Save results to JSON file
+  -h, --help           Show help message
+```
+
+Press **Ctrl+C** to stop and view statistics.
+
+!!! info "Platform Support"
+    - **macOS**: Full support (with sudo for GPU/CPU power via `powermetrics`)
+    - **Linux (NVIDIA)**: GPU metrics via `nvidia-smi`
+    - **Windows**: Basic CPU/RAM metrics via `psutil`
+
+---
 ## Troubleshooting
 
 ### uv command not found

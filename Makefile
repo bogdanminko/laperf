@@ -19,7 +19,7 @@ bench:
 # Run pre-commit hooks on all files
 format:
 	@echo "🔧 Running pre-commit hooks..."
-	@uv run pre-commit run --all-files
+	@pre-commit run --all-files
 
 # Run linting only (ruff)
 lint:
